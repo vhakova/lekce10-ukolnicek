@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 	<h1>Ukládání polí a objektů do Local Storage</h1>
 
 	<p>Local Storage je jednoduché úložiště typu klíč-hodnota. Klíč je název, pod jakým je hodnota v Local Storage uložená. Hodnota ale může být pouze <strong>textový řetězec</strong>. Pokud chceme do Local Storage ukládat složitější datové struktury, např. objekty nebo pole, musíme je před uložením převést do textové podoby. A při čtení z Local Storage je naopak převést z textu do jejich původní podoby. </p>
@@ -38,15 +37,15 @@
 		<!-- sem budeme generovat seznam úkolů -->
 	</ul>
 
-		<input id="popis" type="text" placeholder="popis úkolu">
+	<input id="popis" type="text" placeholder="popis úkolu">
 
-		<select id="dulezitost">
-			<option>nízká</option>
-			<option>střední</option>
-			<option>vysoká</option>
-		</select>
+	<select id="dulezitost">
+		<option>nízká</option>
+		<option>střední</option>
+		<option>vysoká</option>
+	</select>
 
-		<button onclick="pridejUkol()" class="btn-ulozit">Přidat úkol</button>
+	<button onclick="pridejUkol()" class="btn-ulozit">Přidat úkol</button>
 
 	<script src="main.js"></script>
 </body>
