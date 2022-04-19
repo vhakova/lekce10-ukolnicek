@@ -1,6 +1,7 @@
 // do proměnné si uložíme prvek, do kterého budeme vypisovat seznam [úkol]
 
 // založíme si prázdné pole, ve kterém budeme uchovávat úkoly
+let ukoly = [];
 
 // v poli budou úkoly jako objekty, každý úkol má popis a důležitost
 // když něco v poli bude, mělo by to vypadat takto:
@@ -20,6 +21,7 @@ ukoly = [
 
 // ihned po načtení stránky zavoláme funkci,
 // která přečte seznam úkolů z Local Storage
+nactiUkoly();
 
 // a hned seznam úkolů zobrazíme
 
@@ -27,13 +29,20 @@ ukoly = [
 
 // funkce pro načtení seznamu úkolů z Local Storage
 function nactiUkoly() {
+	console.log(' call of nactiUkoly');
+	let hodnota = localStorage.ukoly;
 
+	if(hodnota === null || hodnota === undefined) {
+		ukoly = [];
+	} else {
+		ukoly = JSON.parse(hodnota);
+	}
 }
 
 
 // funkce pro uložení seznamu úkolů do Local Storage
 function ulozUkoly() {
-
+	localStorage.ukoly = JSON.stringify(ukoly);
 }
 
 
