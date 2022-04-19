@@ -77,7 +77,11 @@ function vytvorPrvekUkolu(index, popis, dulezitost) {
 
 // funkce pro smazání úúkolu při kliknutí na tlačítko "x" vedle popisu úkolu
 function odstranUkol() {
+	let index = this.dataset.index;
+	ukoly.splice(index, 1);
 
+	ulozUkoly();
+	zobrazUkoly();
 }
 
 
