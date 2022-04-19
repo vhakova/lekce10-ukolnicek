@@ -1,5 +1,5 @@
 // do proměnné si uložíme prvek, do kterého budeme vypisovat seznam [úkol]
-
+const seznam = document.querySelector('#seznam');
 // založíme si prázdné pole, ve kterém budeme uchovávat úkoly
 let ukoly = [];
 
@@ -47,14 +47,31 @@ function ulozUkoly() {
 
 // funkce pro zobrazení seznamu úkolů na stránce
 function zobrazUkoly() {
+	seznam.innerHTML = '';
 
+	if (ukoly.length > 0) {
+		for(let i = 0; i < ukoly.length; i++) {
+			let ukol = vytvorPrvekUkolu(i, ukoly[i].popis, ukoly[i].dulezitost);
+			seznam.appendChild(ukol);
+		}
+	}
 }
 
 
 // funkce, která vytvoří HTML prvky jednoho úkolu
 // jako parametry očekává index úkolu v poli, popis a důležitost úkolu
 function vytvorPrvekUkolu(index, popis, dulezitost) {
+	let liElement = document.createElement('li');
+	liElement.textContent = `${popis} - ${dulezitost} důležitost`;
 
+	let buttonElement = document.createElement('button');
+	buttonElement.textContent = 'x';
+	buttonElement.dataset.index = index;
+	buttonElement.onclick = odstranUkol;
+
+	liElement.appendChild(buttonElement);
+
+	return liElement;
 }
 
 
@@ -81,4 +98,6 @@ function pridejUkol() {
 	ukoly.push(ukol);
 
 	ulozUkoly();
+
+	zobrazUkoly();
 }
